@@ -1,0 +1,69 @@
+<!-- <div class="conatiner-fluid">
+    <div class="row mt-5">
+        <div class="col">
+
+        </div>
+        <div class="col-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <h3 class="text-center text-dark text-muted">Login</h3>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Email address</label>
+                          <input type="email" class="form-control" name="email" [(ngModel)]="email">
+                          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input type="password" class="form-control" name="password" [(ngModel)]="password">
+                        </div>
+                                                <button type="button" (click)="login()" class="btn btn-info">Login</button>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="#" class="text-decoration-none">Forgot Password?</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a routerLink="register" class="text-decoration-none">Need Account?<span class="text-danger">Register</span></a>
+                            </div>
+                        </div>
+                      </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet> -->
+<!-- login.component.html -->
+<!-- <form >
+    <input type="email"  placeholder="Email" required>
+    <input type="password"  placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form> -->
+<div class="w-25 d-flex justify-content-center" style="position: absolute; top: 25%; left: 37%;">
+  <form (submit)="login(email.value, password.value)">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input #email type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" autocomplete="email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input #password type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <small id="passwordHelp" class="form-text text-muted">Password length must be greater than six.</small>
+      
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Remember me</label>
+    </div>
+    
+    <button type="submit" class="btn btn-info w-50 mt-5" style="margin-left: 25%;">Login</button>
+    <p class="mt-5 ml-4">Don't have an account? <a routerLink="/register">Register</a></p>
+    <!-- <button type="submit"(click)="signInWithGoogle()" class="btn btn-info w-50 mt-5" style="margin-left: 25%;">Google</button> -->
+  </form>
+
+  <app-error-modal></app-error-modal>
+</div>

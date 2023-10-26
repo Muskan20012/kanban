@@ -1,0 +1,85 @@
+
+<button class="btn btn-info float-right mr-3 mt-3" (click)="logout()">Logout</button>
+<!-- Form for adding columns -->
+<form (submit)="addColumn()" style="margin-left: 3%; margin-top: 3%;" >
+  <div class="form-group row">
+    <div>
+
+      <label for="boardTitle">Add Column</label>
+      <input id="boardTitle" class="form-control" [(ngModel)]="newColumnName" placeholder="Column Name" [ngModelOptions]="{standalone:true}" required>
+    </div>
+    <button class="btn btn-info ml-2" type="submit" style="height: 5%; margin-top: 2%; ">Add Column</button>
+
+  </div>
+</form>
+<!-- <form (submit)="addTask()">
+  <select [(ngModel)]="selectedColumn">
+    <option *ngFor="let column of board.columns" [value]="column.id">{{ column.name }}</option>
+  </select>
+  <input [(ngModel)]="newTask" name="newTask" placeholder="Task" [ngModelOptions]="{standalone:true}" required>
+  <button type="submit">Add Task</button>
+</form> -->
+
+
+
+<div class="root" style="margin-top: 8%;">
+  <div class="board">
+    <div class="board-wrapper">
+      <div class="board-columns">
+        
+        <!-- <div cdkDropList 
+            cdkDropListOrientation="horizontal" class="board-columns"
+            (cdkDropListDropped)="dropGrid($event)">
+        <div 
+           cdkDragLockAxis="x" class="board-column" 
+           *ngFor="let column of board.columns" cdkDrag>
+          <div class="column-title" cdkDragHandle>
+            {{ column.name }}
+          </div>
+          <div class="tasks-container"
+          id="{{column.id}}"
+          [cdkDropListConnectedTo]="['21', '32']"
+          cdkDropList
+          [cdkDropListData]="column.tasks"
+          (cdkDropListDropped)="drop($event)">
+            <div class="task" *ngFor="let item of column.tasks" cdkDrag>
+              {{ item }}
+            </div>
+          </div>
+
+        </div> -->
+        <!-- <div cdkDropList cdkDropListOrientation="horizontal" class="board-columns" (cdkDropListDropped)="dropGrid($event)">
+          <div cdkDragLockAxis="x" class="board-column" *ngFor="let column of board.columns" cdkDrag>
+            <div class="column-title" cdkDragHandle>
+              {{ column.name }}
+            </div>
+            <div class="tasks-container" [cdkDropListConnectedTo]="getConnectedColumnIds()" cdkDropList [cdkDropListData]="column.tasks" (cdkDropListDropped)="drop($event)">
+              <div class="task" *ngFor="let item of column.tasks" cdkDrag>
+                {{ item }}
+              </div>
+              <input [(ngModel)]="newTask" name="newTask" placeholder="Add a new task" (keyup.enter)="addTask(column)">
+            
+            </div>
+          </div>
+        </div> -->
+        <div cdkDropList cdkDropListOrientation="vertical" class="board-columns" (cdkDropListDropped)="dropGrid($event)">
+          <div cdkDragLockAxis="y" class="board-column" *ngFor="let column of board.columns" cdkDrag>
+            <div class="column-title" cdkDragHandle>
+              {{ column.name }}
+            </div>
+            <div class="tasks-container" id="{{column.id}}" [cdkDropListConnectedTo]="getConnectedColumnIds()" cdkDropList [cdkDropListData]="column.tasks" (cdkDropListDropped)="drop($event)">
+              <div class="task" *ngFor="let item of column.tasks" cdkDrag cdkDragData="item">
+                {{ item }}
+              </div>
+              <!-- Input field to add new task -->
+              <input [(ngModel)]="newTasks[column.id]" name="newTask" placeholder="Add a new task" (keyup.enter)="addTask(column)">
+            </div>
+          </div>
+        </div>
+        
+        
+
+      </div>
+    </div>
+  </div>
+</div>
