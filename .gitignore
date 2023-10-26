@@ -44,3 +44,4 @@ Thumbs.db
 .firebaserc
 firebase.json
 firestore.indexes.json
+firestore.rules
